@@ -69,18 +69,27 @@ nav a:hover::after{width:100%}
   position:relative;
   overflow:hidden;
 }
+
+/* 🔴 IMPORTANT FIX */
 .slide{
   position:absolute;
   inset:0;
   opacity:0;
   transition:1s ease;
+  pointer-events:none;          /* hidden slides not clickable */
 }
-.slide.active{opacity:1}
+
+.slide.active{
+  opacity:1;
+  pointer-events:auto;          /* only active slide clickable */
+}
+
 .slide a{
   display:block;
   width:100%;
   height:100%;
 }
+
 .slide img{
   width:100%;
   height:100%;
@@ -148,10 +157,7 @@ footer p{font-size:14px;line-height:1.7}
     <a href="about.html">About Us</a>
     <a href="projects.html">Projects</a>
     <a href="services.html">Services</a>
-
-    <!-- INTERIOR INSIDE MAIN SITE -->
     <a href="interior.html">Interior</a>
-
     <a href="https://divineacres.in" target="_blank">Divine Acres</a>
     <a href="careers.html">Careers</a>
     <a href="contact.html">Contact</a>
@@ -161,21 +167,21 @@ footer p{font-size:14px;line-height:1.7}
 <!-- ================= SLIDER ================= -->
 <div class="slider">
 
-  <!-- SLIDER 1 : INTERIOR -->
+  <!-- SLIDE 1 : INTERIOR -->
   <div class="slide active">
     <a href="interior.html">
       <img src="images/slider3.png" alt="Aneka Interior">
     </a>
   </div>
 
-  <!-- SLIDER 2 : CONSTRUCTION -->
+  <!-- SLIDE 2 : CONSTRUCTION -->
   <div class="slide">
     <a href="projects.html">
       <img src="images/slider2.png" alt="Aneka Construction">
     </a>
   </div>
 
-  <!-- SLIDER 3 : DIVINE ACRES -->
+  <!-- SLIDE 3 : DIVINE ACRES -->
   <div class="slide">
     <a href="https://divineacres.in" target="_blank">
       <img src="images/slider1.png" alt="Divine Acres">
@@ -244,11 +250,12 @@ footer p{font-size:14px;line-height:1.7}
 <script>
 let slides = document.querySelectorAll('.slide');
 let i = 0;
-setInterval(()=>{
+
+setInterval(() => {
   slides[i].classList.remove('active');
   i = (i + 1) % slides.length;
   slides[i].classList.add('active');
-},4000);
+}, 4000);
 </script>
 
 </body>
