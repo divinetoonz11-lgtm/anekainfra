@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root{
-  --brand:#0A3D62;
-}
+:root{ --brand:#0A3D62; }
 
 *{box-sizing:border-box}
 
@@ -24,15 +22,14 @@ a{text-decoration:none}
 /* ================= HEADER ================= */
 header{
   position:fixed;
-  top:0;
-  left:0;
+  top:0; left:0;
   width:100%;
-  height:120px;
-  padding:0 48px;
+  height:110px;
+  padding:0 32px;
   display:flex;
   align-items:center;
   z-index:1000;
-  background:rgba(255,255,255,0.94);
+  background:rgba(255,255,255,0.95);
   backdrop-filter:blur(6px);
 }
 
@@ -46,72 +43,77 @@ header{
 .brand{
   display:flex;
   align-items:center;
-  gap:20px;
+  gap:16px;
 }
 
-/* LOGO */
 .brand img{
-  height:96px;
-  filter: brightness(0) saturate(100%)
-          invert(23%) sepia(66%)
-          saturate(420%)
-          hue-rotate(170deg)
-          brightness(92%) contrast(92%);
+  height:72px;
 }
 
-/* BRAND TEXT */
 .brand-text{
   display:flex;
   flex-direction:column;
-  justify-content:center;
 }
 
 .brand-title{
-  font-size:18px;
-  font-weight:500;
+  font-size:16px;
   letter-spacing:1.5px;
   color:var(--brand);
-  text-transform:uppercase;
 }
 
 .brand-tagline{
-  margin-top:4px;
   font-size:11px;
-  font-weight:400;
-  letter-spacing:1.2px;
-  color:#8a8a8a;
+  color:#888;
 }
 
-/* NAV */
+/* DESKTOP NAV */
 nav{
   margin-left:auto;
 }
-
 nav a{
-  margin-left:28px;
+  margin-left:26px;
   font-size:14px;
   color:#000;
-  letter-spacing:0.6px;
-  position:relative;
 }
 
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:var(--brand);
-  transition:.3s;
+/* MOBILE MENU ICON */
+.menu-toggle{
+  margin-left:auto;
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
 }
-nav a:hover::after{width:100%}
+.menu-toggle span{
+  width:26px;
+  height:2px;
+  background:#000;
+}
+
+/* MOBILE MENU */
+.mobile-nav{
+  position:fixed;
+  top:110px;
+  left:0;
+  width:100%;
+  background:#fff;
+  display:none;
+  flex-direction:column;
+  z-index:999;
+  border-top:1px solid #eee;
+}
+.mobile-nav a{
+  padding:16px 28px;
+  color:#000;
+  border-bottom:1px solid #f0f0f0;
+}
 
 /* ================= HERO ================= */
 .hero{
   position:relative;
   width:100%;
   height:100vh;
+  margin-top:110px;
   overflow:hidden;
 }
 
@@ -124,31 +126,26 @@ nav a:hover::after{width:100%}
   object-fit:cover;
 }
 
-/* MOBILE VIDEO HIDE */
-.hero video.mobile{display:none}
-
-/* BUTTONS */
+/* BUTTONS – FIXED POSITION (NOT TOO LOW) */
 .hero-actions{
   position:absolute;
-  inset:0;
+  bottom:140px;      /* 👈 KEY FIX */
+  left:50%;
+  transform:translateX(-50%);
   display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  gap:28px;
-  padding-bottom:120px;
+  gap:24px;
   z-index:2;
 }
 
 .hero-actions a{
-  padding:16px 44px;
+  padding:14px 38px;
   border:1px solid #fff;
   color:#fff;
-  font-size:14px;
+  font-size:13px;
   background:rgba(0,0,0,0.35);
   letter-spacing:1px;
   transition:.3s;
 }
-
 .hero-actions a:hover{
   background:#fff;
   color:#000;
@@ -160,29 +157,19 @@ nav a:hover::after{width:100%}
     height:90px;
     padding:0 20px;
   }
-
-  .brand img{
-    height:64px;
-  }
-
-  .brand-title{
-    font-size:14px;
-  }
-
-  .brand-tagline{
-    font-size:10px;
-  }
-
+  .brand img{height:56px}
   nav{display:none}
+  .menu-toggle{display:flex}
+
+  .hero{
+    margin-top:90px;
+  }
 
   .hero-actions{
+    bottom:90px;     /* 👈 mobile ke liye balanced */
     flex-direction:column;
-    gap:16px;
-    padding-bottom:60px;
+    gap:14px;
   }
-
-  .hero video.desktop{display:none}
-  .hero video.mobile{display:block}
 }
 </style>
 </head>
@@ -197,33 +184,45 @@ nav a:hover::after{width:100%}
       <img src="images/logo1.png" alt="Aneka Interior Logo">
       <div class="brand-text">
         <div class="brand-title">Aneka Interior</div>
-        <div class="brand-tagline">Luxury Interior Design &amp; Build</div>
+        <div class="brand-tagline">Luxury Interior Design & Build</div>
       </div>
     </div>
 
+    <!-- DESKTOP NAV -->
     <nav>
       <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
+      <a href="about.html">About</a>
       <a href="projects.html">Projects</a>
-      <a href="infrastructure.html">Infrastructure</a>
       <a href="interior.html">Interiors</a>
       <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="contact.html">Contact</a>
     </nav>
+
+    <!-- MOBILE MENU ICON -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
   </div>
 </header>
 
+<!-- MOBILE MENU -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="interior.html">Interiors</a>
+  <a href="careers.html">Careers</a>
+  <a href="contact.html">Contact</a>
+</div>
+
 <!-- ================= HERO ================= -->
 <div class="hero">
 
-  <!-- Desktop Video (Full Loop) -->
-  <video class="desktop" autoplay muted loop playsinline>
-    <source src="videos/hero-desktop.mp4" type="video/mp4">
-  </video>
-
-  <!-- Mobile Video (Stops at 1:55) -->
-  <video class="mobile" autoplay muted playsinline id="mobileHeroVideo">
+  <!-- SAME VIDEO FOR ALL -->
+  <video autoplay muted loop playsinline>
     <source src="videos/hero-mobile.mp4" type="video/mp4">
   </video>
 
@@ -234,18 +233,12 @@ nav a:hover::after{width:100%}
 
 </div>
 
-<!-- ================= JS: MOBILE VIDEO AUTO STOP ================= -->
 <script>
-const mobileVideo = document.getElementById("mobileHeroVideo");
-
-// stop time = 1 min 55 sec = 115 seconds
-const STOP_TIME = 115;
-
-mobileVideo.addEventListener("timeupdate", () => {
-  if (mobileVideo.currentTime >= STOP_TIME) {
-    mobileVideo.pause();
-  }
-});
+/* MOBILE MENU TOGGLE */
+function toggleMenu(){
+  const nav = document.getElementById("mobileNav");
+  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+}
 </script>
 
 </body>
