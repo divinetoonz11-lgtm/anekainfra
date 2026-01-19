@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aneka Interior | Luxury Interior Design & Build</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --brand:#0A3D62;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#000;
+  color:#fff;
+}
+
+a{text-decoration:none}
+
+/* ================= HEADER ================= */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:120px;
+  padding:0 48px;
+  display:flex;
+  align-items:center;
+  z-index:1000;
+  background:rgba(255,255,255,0.94);
+  backdrop-filter:blur(6px);
+}
+
+.header-inner{
+  width:100%;
+  display:flex;
+  align-items:center;
+}
+
+/* BRAND */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+/* LOGO */
+.brand img{
+  height:96px;
+  filter: brightness(0) saturate(100%)
+          invert(23%) sepia(66%)
+          saturate(420%)
+          hue-rotate(170deg)
+          brightness(92%) contrast(92%);
+}
+
+/* BRAND TEXT (SOFT, NOT FORCED) */
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.brand-title{
+  font-size:18px;
+  font-weight:500;
+  letter-spacing:1.5px;
+  color:var(--brand);
+  text-transform:uppercase;
+}
+
+.brand-tagline{
+  margin-top:4px;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:1.2px;
+  color:#8a8a8a;
+}
+
+/* NAV */
+nav{
+  margin-left:auto;
+}
+
+nav a{
+  margin-left:28px;
+  font-size:14px;
+  color:#000;
+  letter-spacing:0.6px;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--brand);
+  transition:.3s;
+}
+nav a:hover::after{width:100%}
+
+/* ================= HERO ================= */
+.hero{
+  position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* VIDEO */
+.hero video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* BUTTONS ONLY – CENTER BUT LOWER */
+.hero-actions{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:28px;
+  padding-bottom:120px;
+  z-index:2;
+}
+
+.hero-actions a{
+  padding:16px 44px;
+  border:1px solid #fff;
+  color:#fff;
+  font-size:14px;
+  background:rgba(0,0,0,0.35);
+  letter-spacing:1px;
+  transition:.3s;
+}
+
+.hero-actions a:hover{
+  background:#fff;
+  color:#000;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  header{
+    height:90px;
+    padding:0 20px;
+  }
+
+  .brand img{
+    height:64px;
+  }
+
+  .brand-title{
+    font-size:14px;
+  }
+
+  .brand-tagline{
+    font-size:10px;
+  }
+
+  nav{display:none}
+
+  .hero-actions{
+    flex-direction:column;
+    gap:16px;
+    padding-bottom:60px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="header-inner">
+
+    <div class="brand">
+      <img src="images/logo1.png" alt="Aneka Interior Logo">
+      <div class="brand-text">
+        <div class="brand-title">Aneka Interior</div>
+        <div class="brand-tagline">Luxury Interior Design &amp; Build</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="projects.html">Projects</a>
+      <a href="infrastructure.html">Infrastructure</a>
+      <a href="interior.html">Interiors</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="images/hero-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-actions">
+    <a href="projects.html">VIEW PROJECTS</a>
+    <a href="consultation.html">GET CONSULTATION</a>
+  </div>
+</div>
+
+</body>
+</html>
