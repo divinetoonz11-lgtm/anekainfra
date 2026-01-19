@@ -59,7 +59,7 @@ header{
           brightness(92%) contrast(92%);
 }
 
-/* BRAND TEXT (SOFT, NOT FORCED) */
+/* BRAND TEXT */
 .brand-text{
   display:flex;
   flex-direction:column;
@@ -124,7 +124,10 @@ nav a:hover::after{width:100%}
   object-fit:cover;
 }
 
-/* BUTTONS ONLY – CENTER BUT LOWER */
+/* MOBILE VIDEO HIDE */
+.hero video.mobile{display:none}
+
+/* BUTTONS */
 .hero-actions{
   position:absolute;
   inset:0;
@@ -177,6 +180,9 @@ nav a:hover::after{width:100%}
     gap:16px;
     padding-bottom:60px;
   }
+
+  .hero video.desktop{display:none}
+  .hero video.mobile{display:block}
 }
 </style>
 </head>
@@ -210,15 +216,37 @@ nav a:hover::after{width:100%}
 
 <!-- ================= HERO ================= -->
 <div class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="images/hero-video.mp4" type="video/mp4">
+
+  <!-- Desktop Video (Full Loop) -->
+  <video class="desktop" autoplay muted loop playsinline>
+    <source src="videos/hero-desktop.mp4" type="video/mp4">
+  </video>
+
+  <!-- Mobile Video (Stops at 1:55) -->
+  <video class="mobile" autoplay muted playsinline id="mobileHeroVideo">
+    <source src="videos/hero-mobile.mp4" type="video/mp4">
   </video>
 
   <div class="hero-actions">
     <a href="projects.html">VIEW PROJECTS</a>
     <a href="consultation.html">GET CONSULTATION</a>
   </div>
+
 </div>
+
+<!-- ================= JS: MOBILE VIDEO AUTO STOP ================= -->
+<script>
+const mobileVideo = document.getElementById("mobileHeroVideo");
+
+// stop time = 1 min 55 sec = 115 seconds
+const STOP_TIME = 115;
+
+mobileVideo.addEventListener("timeupdate", () => {
+  if (mobileVideo.currentTime >= STOP_TIME) {
+    mobileVideo.pause();
+  }
+});
+</script>
 
 </body>
 </html>
