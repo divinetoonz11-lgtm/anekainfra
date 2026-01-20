@@ -17,7 +17,7 @@
 body{
   margin:0;
   font-family:"Segoe UI", Arial, sans-serif;
-  background:#ffffff;
+  background:#fff;
   color:var(--dark);
 }
 
@@ -27,13 +27,15 @@ a{text-decoration:none}
 header{
   position:fixed;
   top:0;
+  left:0;
   width:100%;
-  background:#ffffff;
+  height:64px;
+  padding:0 16px;
+  background:#fff;
   border-bottom:1px solid #e5e5e5;
-  padding:14px 28px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   z-index:1000;
 }
 
@@ -49,57 +51,48 @@ nav{
   display:flex;
 }
 nav a{
-  margin-left:22px;
+  margin-left:20px;
   font-size:14px;
   color:#000;
-  position:relative;
 }
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:var(--blue);
-  transition:.3s;
-}
-nav a:hover::after{width:100%}
 
-/* MOBILE MENU ICON */
+/* ===== HAMBURGER (ALWAYS EXISTS, ONLY SHOWN IN MOBILE) ===== */
 .menu-toggle{
   display:none;
   flex-direction:column;
-  gap:6px;
+  gap:5px;
   cursor:pointer;
 }
+
 .menu-toggle span{
   width:26px;
   height:2px;
   background:#000;
+  display:block;
 }
 
-/* MOBILE MENU */
+/* MOBILE MENU PANEL */
 .mobile-nav{
   position:fixed;
-  top:72px;
+  top:64px;
   left:0;
   width:100%;
-  background:#ffffff;
+  background:#fff;
   display:none;
   flex-direction:column;
   border-bottom:1px solid #e5e5e5;
   z-index:999;
 }
+
 .mobile-nav a{
-  padding:16px 28px;
+  padding:16px;
   border-bottom:1px solid #f0f0f0;
   color:#000;
 }
 
 /* ================= SLIDER ================= */
 .slider{
-  margin-top:72px;
+  margin-top:64px;
   height:60vh;
   position:relative;
   overflow:hidden;
@@ -109,72 +102,53 @@ nav a:hover::after{width:100%}
   position:absolute;
   inset:0;
   opacity:0;
-  transition:1s ease;
+  transition:1s;
   pointer-events:none;
 }
+
 .slide.active{
   opacity:1;
   pointer-events:auto;
 }
-.slide a{
-  display:block;
-  width:100%;
-  height:100%;
-}
+
 .slide img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= CONTENT ================= */
 section{
-  padding:90px 80px;
-}
-.section-title{
-  font-size:32px;
-  color:var(--blue);
-  margin-bottom:20px;
-}
-.section-text{
-  max-width:900px;
-  font-size:15px;
-  line-height:1.8;
-  color:#444;
+  padding:80px 60px;
 }
 
-/* ================= BUSINESS ================= */
-.business{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
-  margin-top:50px;
-}
-.business-box{
-  border-left:4px solid var(--blue);
-  padding:24px;
-  background:#ffffff;
-}
-.business-box h4{
-  margin:0 0 10px;
+.section-title{
+  font-size:30px;
   color:var(--blue);
+  margin-bottom:20px;
 }
 
 /* ================= FOOTER ================= */
 footer{
   background:#0a0a0a;
-  color:#cccccc;
-  padding:60px 80px;
+  color:#ccc;
+  padding:50px;
 }
-footer strong{color:#ffffff}
-footer p{font-size:14px;line-height:1.7}
 
 /* ================= MOBILE ================= */
 @media(max-width:900px){
-  nav{display:none}
-  .menu-toggle{display:flex}
-  .slider{height:48vh}
-  section{padding:70px 24px}
+  nav{
+    display:none !important;   /* 🔴 desktop nav force hide */
+  }
+  .menu-toggle{
+    display:flex !important;  /* 🔴 hamburger force show */
+  }
+  section{
+    padding:60px 20px;
+  }
+  .slider{
+    height:48vh;
+  }
 }
 </style>
 </head>
@@ -188,7 +162,7 @@ footer p{font-size:14px;line-height:1.7}
   <!-- DESKTOP NAV -->
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
+    <a href="about.html">About</a>
     <a href="projects.html">Projects</a>
     <a href="services.html">Services</a>
     <a href="interior.html">Interior</a>
@@ -197,7 +171,7 @@ footer p{font-size:14px;line-height:1.7}
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- MOBILE MENU ICON -->
+  <!-- MOBILE 3 DOT -->
   <div class="menu-toggle" onclick="toggleMenu()">
     <span></span>
     <span></span>
@@ -208,7 +182,7 @@ footer p{font-size:14px;line-height:1.7}
 <!-- MOBILE MENU -->
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
+  <a href="about.html">About</a>
   <a href="projects.html">Projects</a>
   <a href="services.html">Services</a>
   <a href="interior.html">Interior</a>
@@ -220,71 +194,42 @@ footer p{font-size:14px;line-height:1.7}
 <!-- ================= SLIDER ================= -->
 <div class="slider">
   <div class="slide active">
-    <a href="interior.html">
-      <img src="images/slider3.png">
-    </a>
+    <img src="images/slider3.png">
   </div>
   <div class="slide">
-    <a href="projects.html">
-      <img src="images/slider2.png">
-    </a>
+    <img src="images/slider2.png">
   </div>
   <div class="slide">
-    <a href="https://divineacres.in" target="_blank">
-      <img src="images/slider1.png">
-    </a>
+    <img src="images/slider1.png">
   </div>
 </div>
 
-<!-- ================= ABOUT ================= -->
 <section>
   <div class="section-title">About Aneka Group</div>
-  <div class="section-text">
+  <p>
     Aneka Infra Pvt Ltd is an integrated construction and infrastructure group
     delivering residential, commercial and urban development projects.
-  </div>
+  </p>
 </section>
 
-<!-- ================= BUSINESS ================= -->
-<section style="background:var(--light)">
-  <div class="section-title">Our Businesses</div>
-  <div class="business">
-    <div class="business-box">
-      <h4>Construction & Infrastructure</h4>
-      <p>Premium infrastructure execution.</p>
-    </div>
-    <div class="business-box">
-      <h4>Interior Design</h4>
-      <p>Luxury commercial and residential interiors.</p>
-    </div>
-    <div class="business-box">
-      <h4>Digital Real Estate Platform</h4>
-      <p>Technology driven real estate ecosystem.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
 <footer>
-  <p><strong>Corporate Office</strong></p>
-  <p>Andheri (E), Mumbai – 400093</p>
-  <p style="margin-top:30px;">© 2026 Aneka Infra Pvt Ltd.</p>
+  © 2026 Aneka Infra Pvt Ltd
 </footer>
 
 <script>
 /* SLIDER */
-let slides=document.querySelectorAll('.slide');
-let i=0;
+let slides = document.querySelectorAll(".slide");
+let i = 0;
 setInterval(()=>{
-  slides[i].classList.remove('active');
-  i=(i+1)%slides.length;
-  slides[i].classList.add('active');
+  slides[i].classList.remove("active");
+  i = (i + 1) % slides.length;
+  slides[i].classList.add("active");
 },4000);
 
 /* MOBILE MENU */
 function toggleMenu(){
-  const nav=document.getElementById("mobileNav");
-  nav.style.display = nav.style.display==="flex" ? "none" : "flex";
+  const menu = document.getElementById("mobileNav");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 </script>
 
