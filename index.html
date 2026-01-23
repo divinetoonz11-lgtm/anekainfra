@@ -8,118 +8,248 @@
 <style>
 :root{
   --blue:#0A3D62;
+  --light:#f4f7fb;
   --dark:#1a1a1a;
 }
+
+*{box-sizing:border-box}
 
 body{
   margin:0;
   font-family:"Segoe UI", Arial, sans-serif;
+  background:#ffffff;
   color:var(--dark);
 }
 
-/* HEADER */
+a{text-decoration:none}
+
+/* ================= HEADER ================= */
 header{
   position:fixed;
   top:0;
   width:100%;
-  height:64px;
-  background:#fff;
+  background:#ffffff;
   border-bottom:1px solid #e5e5e5;
+  padding:14px 28px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  padding:0 24px;
+  align-items:center;
   z-index:1000;
 }
 
 .logo{
+  font-size:18px;
   font-weight:600;
   letter-spacing:2px;
   color:var(--blue);
 }
 
 nav a{
-  margin-left:20px;
-  text-decoration:none;
-  color:#000;
+  margin-left:22px;
   font-size:14px;
+  color:#000;
+  position:relative;
 }
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--blue);
+  transition:.3s;
+}
+nav a:hover::after{width:100%}
 
-/* HERO */
-.hero{
-  margin-top:64px;
+/* ================= SLIDER ================= */
+.slider{
+  margin-top:72px;
   height:60vh;
-  background:url("images/slider2.png") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:1s ease;
+}
+.slide.active{opacity:1}
+.slide a{
+  display:block;
+  width:100%;
+  height:100%;
+}
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.hero h1{
-  color:#fff;
-  background:rgba(0,0,0,.45);
-  padding:20px 30px;
-  letter-spacing:2px;
-}
-
-/* SECTION */
+/* ================= SECTIONS ================= */
 section{
-  padding:80px 60px;
+  padding:90px 80px;
 }
-
 .section-title{
-  font-size:30px;
+  font-size:32px;
   color:var(--blue);
   margin-bottom:20px;
 }
+.section-text{
+  max-width:900px;
+  font-size:15px;
+  line-height:1.8;
+  color:#444;
+}
 
-/* FOOTER */
+/* ================= BUSINESS ================= */
+.business{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+  margin-top:50px;
+}
+.business-box{
+  border-left:4px solid var(--blue);
+  padding:24px;
+  background:#ffffff;
+}
+.business-box h4{
+  margin:0 0 10px;
+  color:var(--blue);
+}
+
+/* ================= FOOTER ================= */
 footer{
   background:#0a0a0a;
-  color:#ccc;
-  padding:40px;
-  font-size:14px;
+  color:#cccccc;
+  padding:60px 80px;
+}
+footer strong{color:#ffffff}
+footer p{font-size:14px;line-height:1.7}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  nav{display:none}
+  .slider{height:48vh}
+  section{padding:70px 24px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
   <div class="logo">ANEKA INFRA</div>
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
+    <a href="about.html">About Us</a>
     <a href="projects.html">Projects</a>
     <a href="services.html">Services</a>
+
     <a href="interior.html">Interior</a>
+    <a href="profile.html">Company Profile</a>
+
+    <a href="https://divineacres.in" target="_blank">Divine Acres</a>
     <a href="careers.html">Careers</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<div class="hero">
-  <h1>BUILDING WITH EXPERIENCE. DELIVERING WITH TRUST.</h1>
+<!-- ================= SLIDER ================= -->
+<div class="slider">
+
+  <!-- SLIDE 1 : INTERIOR -->
+  <div class="slide active">
+    <a href="interior.html">
+      <img src="images/slider3.png" alt="Aneka Interior">
+    </a>
+  </div>
+
+  <!-- SLIDE 2 : CONSTRUCTION -->
+  <div class="slide">
+    <a href="projects.html">
+      <img src="images/slider2.png" alt="Aneka Construction">
+    </a>
+  </div>
+
+  <!-- SLIDE 3 : DIVINE ACRES -->
+  <div class="slide">
+    <a href="https://divineacres.in" target="_blank">
+      <img src="images/slider1.png" alt="Divine Acres">
+    </a>
+  </div>
+
 </div>
 
+<!-- ================= ABOUT ================= -->
 <section>
-  <div class="section-title">About Aneka Infra</div>
-  <p>
-    Aneka Infra Pvt Ltd is a professionally managed construction and
-    infrastructure company delivering high-quality civil, infrastructure
-    and interior solutions across India.
-  </p>
-
-  <p>
-    <a href="docs/aneka infra profile.pdf" target="_blank">
-      📄 Download Company Profile (PDF)
-    </a>
-  </p>
+  <div class="section-title">About Aneka Group</div>
+  <div class="section-text">
+    Aneka Infra Pvt Ltd is an integrated construction and infrastructure group
+    delivering residential, commercial and urban development projects.
+    The group operates across construction, interior design and a
+    technology-driven real estate platform.
+  </div>
 </section>
 
+<!-- ================= BUSINESS ================= -->
+<section style="background:var(--light)">
+  <div class="section-title">Our Businesses</div>
+  <div class="business">
+
+    <div class="business-box">
+      <h4>Construction & Infrastructure</h4>
+      <p>
+        Execution of premium buildings and infrastructure projects with
+        focus on engineering excellence, safety and long-term value.
+      </p>
+    </div>
+
+    <div class="business-box">
+      <h4>Interior Design</h4>
+      <p>
+        Luxury commercial and residential interiors delivered through
+        a dedicated interior design vertical.
+      </p>
+    </div>
+
+    <div class="business-box">
+      <h4>Digital Real Estate Platform</h4>
+      <p>
+        Technology-driven real estate ecosystem connecting buyers,
+        sellers and verified real estate partners.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
 <footer>
-  © 2026 Aneka Infra Pvt Ltd · Mumbai, India
+  <p><strong>Corporate Office</strong></p>
+  <p>
+    Innov8 Solitaire Corporate Park, 7th Floor, Unit 1171–1172,<br>
+    Andheri (E), Mumbai – 400093
+  </p>
+  <p>
+    <strong>Email:</strong> bussniss@anekainfar.com<br>
+    <strong>Contact:</strong> 8887584494
+  </p>
+  <p style="margin-top:30px;">© 2026 Aneka Infra Pvt Ltd. All Rights Reserved.</p>
 </footer>
+
+<script>
+let slides=document.querySelectorAll('.slide');
+let i=0;
+setInterval(()=>{
+  slides[i].classList.remove('active');
+  i=(i+1)%slides.length;
+  slides[i].classList.add('active');
+},4000);
+</script>
 
 </body>
 </html>
