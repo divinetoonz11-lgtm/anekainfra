@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Projects | Aneka Infra Pvt Ltd</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --blue:#0A3D62;
+  --light:#f4f7fb;
+  --dark:#1a1a1a;
+}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#fff;
+  color:var(--dark);
+}
+a{text-decoration:none}
+
+/* ================= HEADER ================= */
+header{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:64px;
+  padding:0 16px;
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index:1000;
+}
+.logo{
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:2px;
+  color:var(--blue);
+}
+nav{display:flex}
+nav a{
+  margin-left:20px;
+  font-size:14px;
+  color:#000;
+}
+
+/* MOBILE */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+.menu-toggle span{
+  width:26px; height:2px; background:#000;
+}
+.mobile-nav{
+  position:fixed;
+  top:64px; left:0;
+  width:100%;
+  background:#fff;
+  display:none;
+  flex-direction:column;
+  border-bottom:1px solid #e5e5e5;
+  z-index:999;
+}
+.mobile-nav a{
+  padding:16px;
+  border-bottom:1px solid #f0f0f0;
+  color:#000;
+}
+
+/* ================= PAGE ================= */
+.page{
+  margin-top:64px;
+  padding:90px 80px;
+}
+.page-title{
+  font-size:36px;
+  color:var(--blue);
+  margin-bottom:20px;
+}
+.page-sub{
+  max-width:900px;
+  font-size:15px;
+  line-height:1.8;
+  color:#444;
+}
+
+/* ================= PROJECT GRID ================= */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+  margin-top:60px;
+}
+.project-box{
+  border:1px solid #e5e5e5;
+  background:#fff;
+}
+.project-box img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+.project-content{
+  padding:22px;
+}
+.project-content h4{
+  margin:0 0 8px;
+  color:var(--blue);
+}
+.project-content p{
+  font-size:14px;
+  line-height:1.7;
+  color:#555;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#0a0a0a;
+  color:#ccc;
+  padding:50px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  nav{display:none}
+  .menu-toggle{display:flex}
+  .page{padding:70px 24px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="logo">ANEKA INFRA</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Services</a>
+    <a href="interior.html">Interior</a>
+    <a href="profile.html">Company Profile</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="services.html">Services</a>
+  <a href="interior.html">Interior</a>
+  <a href="profile.html">Company Profile</a>
+  <a href="careers.html">Careers</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<div class="page">
+  <div class="page-title">Our Projects</div>
+  <div class="page-sub">
+    Aneka Infra has successfully delivered multiple civil construction
+    and interior projects across residential and commercial segments,
+    with several developments currently under execution.
+  </div>
+
+  <div class="projects">
+    <div class="project-box">
+      <img src="images/rohan1.png" alt="">
+      <div class="project-content">
+        <h4>Residential Construction</h4>
+        <p>Completed premium residential building project with modern
+        construction standards.</p>
+      </div>
+    </div>
+
+    <div class="project-box">
+      <img src="images/rohan2.png" alt="">
+      <div class="project-content">
+        <h4>Commercial Development</h4>
+        <p>Executed commercial space with focus on structural strength
+        and functional design.</p>
+      </div>
+    </div>
+
+    <div class="project-box">
+      <img src="images/rohan3.png" alt="">
+      <div class="project-content">
+        <h4>Interior Fit-Out</h4>
+        <p>Luxury interior execution for residential and office spaces.</p>
+      </div>
+    </div>
+
+    <div class="project-box">
+      <img src="images/rohan4.png" alt="">
+      <div class="project-content">
+        <h4>Ongoing Project</h4>
+        <p>Currently under construction with phased delivery planning.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2026 Aneka Infra Pvt Ltd. All Rights Reserved.
+</footer>
+
+<script>
+function toggleMenu(){
+  const menu=document.getElementById("mobileNav");
+  menu.style.display = menu.style.display==="flex" ? "none" : "flex";
+}
+</script>
+
+</body>
+</html>

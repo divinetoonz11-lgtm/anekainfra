@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Us | Aneka Infra Pvt Ltd</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --blue:#0A3D62;
+  --light:#f4f7fb;
+  --dark:#1a1a1a;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#ffffff;
+  color:var(--dark);
+}
+
+a{text-decoration:none}
+
+/* ================= HEADER ================= */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:64px;
+  padding:0 16px;
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index:1000;
+}
+
+.logo{
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:2px;
+  color:var(--blue);
+}
+
+/* DESKTOP NAV */
+nav{
+  display:flex;
+}
+nav a{
+  margin-left:20px;
+  font-size:14px;
+  color:#000;
+}
+
+/* MOBILE */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+.menu-toggle span{
+  width:26px;
+  height:2px;
+  background:#000;
+}
+
+.mobile-nav{
+  position:fixed;
+  top:64px;
+  left:0;
+  width:100%;
+  background:#fff;
+  display:none;
+  flex-direction:column;
+  border-bottom:1px solid #e5e5e5;
+  z-index:999;
+}
+.mobile-nav a{
+  padding:16px;
+  border-bottom:1px solid #f0f0f0;
+  color:#000;
+}
+
+/* ================= PAGE ================= */
+.page{
+  margin-top:64px;
+  padding:90px 80px;
+}
+
+.page-title{
+  font-size:36px;
+  color:var(--blue);
+  margin-bottom:30px;
+}
+
+.text{
+  max-width:1000px;
+  font-size:15px;
+  line-height:1.9;
+  color:#444;
+}
+
+/* ================= VALUES ================= */
+.values{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:40px;
+  margin-top:60px;
+}
+
+.value-box{
+  border-left:4px solid var(--blue);
+  padding:24px;
+  background:#fff;
+}
+
+.value-box h4{
+  margin:0 0 10px;
+  color:var(--blue);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#0a0a0a;
+  color:#ccc;
+  padding:50px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  nav{display:none}
+  .menu-toggle{display:flex}
+  .page{padding:70px 24px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="logo">ANEKA INFRA</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Services</a>
+    <a href="interior.html">Interior</a>
+    <a href="profile.html">Company Profile</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="services.html">Services</a>
+  <a href="interior.html">Interior</a>
+  <a href="profile.html">Company Profile</a>
+  <a href="careers.html">Careers</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<div class="page">
+  <div class="page-title">About Aneka Infra</div>
+
+  <div class="text">
+    Aneka Infra Pvt Ltd is an integrated construction and infrastructure
+    development company delivering high-quality residential, commercial,
+    and urban infrastructure projects across India.
+    <br><br>
+    With a strong foundation in engineering excellence, disciplined execution,
+    and long-term value creation, Aneka Infra has successfully completed
+    multiple civil construction projects and continues to expand its footprint
+    across construction, interiors, and digital real estate services.
+    <br><br>
+    The group also operates a dedicated interior design division focused on
+    premium residential and commercial interiors, and a technology-driven
+    real estate listing platform connecting buyers, sellers, and developers.
+  </div>
+
+  <div class="values">
+    <div class="value-box">
+      <h4>Engineering Excellence</h4>
+      <p>Strong technical expertise and structured execution standards.</p>
+    </div>
+    <div class="value-box">
+      <h4>Quality & Safety</h4>
+      <p>Strict adherence to safety norms and quality benchmarks.</p>
+    </div>
+    <div class="value-box">
+      <h4>Integrity & Trust</h4>
+      <p>Transparent operations and long-term stakeholder relationships.</p>
+    </div>
+    <div class="value-box">
+      <h4>Future Ready</h4>
+      <p>Scalable systems aligned with modern construction practices.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2026 Aneka Infra Pvt Ltd. All Rights Reserved.
+</footer>
+
+<script>
+function toggleMenu(){
+  const menu=document.getElementById("mobileNav");
+  menu.style.display = menu.style.display==="flex" ? "none" : "flex";
+}
+</script>
+
+</body>
+</html>

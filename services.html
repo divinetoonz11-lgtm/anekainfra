@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Services | Aneka Infra Pvt Ltd</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --blue:#0A3D62;
+  --light:#f4f7fb;
+  --dark:#1a1a1a;
+}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#fff;
+  color:var(--dark);
+}
+a{text-decoration:none}
+
+/* ================= HEADER ================= */
+header{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:64px;
+  padding:0 16px;
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index:1000;
+}
+.logo{
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:2px;
+  color:var(--blue);
+}
+nav{display:flex}
+nav a{
+  margin-left:20px;
+  font-size:14px;
+  color:#000;
+}
+
+/* MOBILE */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+.menu-toggle span{
+  width:26px; height:2px; background:#000;
+}
+.mobile-nav{
+  position:fixed;
+  top:64px; left:0;
+  width:100%;
+  background:#fff;
+  display:none;
+  flex-direction:column;
+  border-bottom:1px solid #e5e5e5;
+  z-index:999;
+}
+.mobile-nav a{
+  padding:16px;
+  border-bottom:1px solid #f0f0f0;
+  color:#000;
+}
+
+/* ================= PAGE ================= */
+.page{
+  margin-top:64px;
+  padding:90px 80px;
+}
+.page-title{
+  font-size:36px;
+  color:var(--blue);
+  margin-bottom:20px;
+}
+.page-sub{
+  max-width:900px;
+  font-size:15px;
+  line-height:1.8;
+  color:#444;
+}
+
+/* ================= SERVICES ================= */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+  margin-top:60px;
+}
+.service-box{
+  border-left:4px solid var(--blue);
+  padding:26px;
+  background:#fff;
+  border:1px solid #e5e5e5;
+}
+.service-box h4{
+  margin:0 0 10px;
+  color:var(--blue);
+}
+.service-box p{
+  font-size:14px;
+  line-height:1.7;
+  color:#555;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#0a0a0a;
+  color:#ccc;
+  padding:50px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  nav{display:none}
+  .menu-toggle{display:flex}
+  .page{padding:70px 24px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="logo">ANEKA INFRA</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="services.html">Services</a>
+    <a href="interior.html">Interior</a>
+    <a href="profile.html">Company Profile</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="services.html">Services</a>
+  <a href="interior.html">Interior</a>
+  <a href="profile.html">Company Profile</a>
+  <a href="careers.html">Careers</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<div class="page">
+  <div class="page-title">Our Services</div>
+  <div class="page-sub">
+    Aneka Infra delivers end-to-end construction, infrastructure and interior
+    solutions with a strong focus on quality, safety and timely execution.
+  </div>
+
+  <div class="services">
+    <div class="service-box">
+      <h4>Civil & Structural Construction</h4>
+      <p>
+        Execution of residential, commercial and mixed-use developments with
+        robust structural engineering and quality construction practices.
+      </p>
+    </div>
+
+    <div class="service-box">
+      <h4>Infrastructure Development</h4>
+      <p>
+        Roads, drainage, utilities and urban infrastructure projects executed
+        with systematic planning and compliance standards.
+      </p>
+    </div>
+
+    <div class="service-box">
+      <h4>Commercial Construction</h4>
+      <p>
+        Corporate offices, retail spaces and industrial structures delivered
+        with functional design and execution efficiency.
+      </p>
+    </div>
+
+    <div class="service-box">
+      <h4>Interior Design & Fit-Out</h4>
+      <p>
+        Premium residential and commercial interiors with attention to detail,
+        material quality and finishing excellence.
+      </p>
+    </div>
+
+    <div class="service-box">
+      <h4>Design & Build Solutions</h4>
+      <p>
+        Integrated design-to-execution model ensuring coordination, cost
+        control and faster project delivery.
+      </p>
+    </div>
+
+    <div class="service-box">
+      <h4>Project Management</h4>
+      <p>
+        End-to-end project planning, monitoring and execution with focus on
+        timelines, budgets and safety.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2026 Aneka Infra Pvt Ltd. All Rights Reserved.
+</footer>
+
+<script>
+function toggleMenu(){
+  const menu=document.getElementById("mobileNav");
+  menu.style.display = menu.style.display==="flex" ? "none" : "flex";
+}
+</script>
+
+</body>
+</html>
