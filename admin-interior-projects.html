@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel | Aneka Infra</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --primary:#0A3D62;
+  --bg:#f4f7fb;
+  --card:#fff;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial;
+  background:var(--bg);
+}
+
+header{
+  background:#fff;
+  padding:18px 24px;
+  border-bottom:1px solid #ddd;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--primary);
+}
+
+.tabs{
+  display:flex;
+  gap:10px;
+  margin:20px;
+}
+
+.tabs button{
+  padding:10px 22px;
+  border:none;
+  background:#ddd;
+  cursor:pointer;
+}
+
+.tabs button.active{
+  background:var(--primary);
+  color:#fff;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+.card{
+  background:#fff;
+  padding:24px;
+  border-radius:10px;
+  margin-bottom:30px;
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+}
+
+button.save{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:10px 24px;
+  cursor:pointer;
+}
+
+button.delete{
+  background:#999;
+  color:#fff;
+  border:none;
+  padding:6px 14px;
+  cursor:pointer;
+  margin-left:10px;
+}
+
+.preview img{
+  height:80px;
+  margin:6px;
+  border:1px solid #ccc;
+}
+
+.section{display:none}
+.section.active{display:block}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">ANEKA ADMIN PANEL</div>
+  <div>Local Backup Mode</div>
+</header>
+
+<div class="tabs">
+  <button class="active" onclick="openTab('slider',this)">Home Slider</button>
+  <button onclick="openTab('projects',this)">Interior Projects</button>
+</div>
+
+<div class="container">
+
+<!-- ================= SLIDER ================= -->
+<div id="slider" class="section active card">
+  <h3>Home Page Slider</h3>
+
+  <input id="sImg" placeholder="Image path (images/slider1.jpg)">
+  <input id="sLink" placeholder="Click link (interior.html)">
+  <button class="save" onclick="addSlider()">Add Slide</button>
+
+  <div id="sliderList"></div>
+</div>
+
+<!-- ================= PROJECTS ================= -->
+<div id="projects" class="section card">
+  <h3>Interior Projects</h3>
+
+  <input id="pName" placeholder="Project Name">
+  <input id="pClient" placeholder="Client Name">
+  <textarea id="pScope" placeholder="Project Scope / Description"></textarea>
+  <textarea id="pImages" placeholder="Image paths (comma separated)"></textarea>
+  <button class="save" onclick="addProject()">Save Project</button>
+
+  <div id="projectList"></div>
+</div>
+
+</div>
+
+<script>
+/* TAB SWITCH */
+function openTab(id,btn){
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+}
+
+/* ================= SLIDER ================= */
+let slider = JSON.parse(localStorage.getItem("homeSlider")) || [];
+
+function addSlider(){
+  if(!sImg.value) return alert("Image path required");
+  slider.push({img:sImg.value, link:sLink.value || "#"});
+  localStorage.setItem("homeSlider",JSON.stringify(slider));
+  sImg.value=sLink.value="";
+  renderSlider();
+}
+
+function deleteSlider(i){
+  slider.splice(i,1);
+  localStorage.setItem("homeSlider",JSON.stringify(slider));
+  renderSlider();
+}
+
+function renderSlider(){
+  sliderList.innerHTML="";
+  slider.forEach((s,i)=>{
+    sliderList.innerHTML+=`
+      <div>
+        <img src="${s.img}" height="60">
+        → ${s.link}
+        <button class="delete" onclick="deleteSlider(${i})">Delete</button>
+      </div>`;
+  });
+}
+renderSlider();
+
+/* ================= PROJECTS ================= */
+let projects = JSON.parse(localStorage.getItem("interiorProjects")) || [];
+
+function addProject(){
+  if(!pName.value) return alert("Project name required");
+  const imgs=pImages.value.split(",").map(i=>i.trim()).filter(Boolean);
+  projects.push({
+    name:pName.value,
+    client:pClient.value,
+    scope:pScope.value,
+    images:imgs
+  });
+  localStorage.setItem("interiorProjects",JSON.stringify(projects));
+  pName.value=pClient.value=pScope.value=pImages.value="";
+  renderProjects();
+}
+
+function deleteProject(i){
+  projects.splice(i,1);
+  localStorage.setItem("interiorProjects",JSON.stringify(projects));
+  renderProjects();
+}
+
+function renderProjects(){
+  projectList.innerHTML="";
+  projects.forEach((p,i)=>{
+    projectList.innerHTML+=`
+      <div>
+        <strong>${p.name}</strong> – ${p.client || ""}<br>
+        ${p.scope || ""}
+        <div class="preview">
+          ${p.images.map(img=>`<img src="${img}">`).join("")}
+        </div>
+        <button class="delete" onclick="deleteProject(${i})">Delete Project</button>
+        <hr>
+      </div>`;
+  });
+}
+renderProjects();
+</script>
+
+</body>
+</html>

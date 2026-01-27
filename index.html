@@ -45,18 +45,15 @@ header{
   color:var(--blue);
 }
 
-/* DESKTOP NAV */
+/* NAV */
 nav{
   display:flex;
-  align-items:center;
   gap:22px;
 }
-
 nav a{
   font-size:14px;
   position:relative;
 }
-
 nav a::after{
   content:"";
   position:absolute;
@@ -69,7 +66,7 @@ nav a::after{
 }
 nav a:hover::after{width:100%}
 
-/* ================= HAMBURGER ================= */
+/* HAMBURGER */
 .menu-toggle{
   display:none;
   width:40px;
@@ -80,7 +77,6 @@ nav a:hover::after{width:100%}
   gap:5px;
   cursor:pointer;
 }
-
 .menu-toggle span{
   width:26px;
   height:3px;
@@ -88,7 +84,7 @@ nav a:hover::after{width:100%}
   border-radius:2px;
 }
 
-/* ================= MOBILE MENU ================= */
+/* MOBILE MENU */
 .mobile-nav{
   position:fixed;
   top:64px;
@@ -98,14 +94,11 @@ nav a:hover::after{width:100%}
   background:#fff;
   display:none;
   flex-direction:column;
-  padding:10px 0;
   overflow-y:auto;
   z-index:999;
 }
-
 .mobile-nav a{
   padding:16px 24px;
-  font-size:15px;
   border-bottom:1px solid #f0f0f0;
 }
 
@@ -116,15 +109,14 @@ nav a:hover::after{width:100%}
   position:relative;
   overflow:hidden;
 }
-
 .slide{
   position:absolute;
   inset:0;
   opacity:0;
   transition:1s ease;
+  cursor:pointer;
 }
 .slide.active{opacity:1}
-
 .slide img{
   width:100%;
   height:100%;
@@ -135,13 +127,11 @@ nav a:hover::after{width:100%}
 section{
   padding:90px 80px;
 }
-
 .section-title{
   font-size:32px;
   color:var(--blue);
   margin-bottom:20px;
 }
-
 .section-text{
   max-width:900px;
   font-size:15px;
@@ -155,7 +145,6 @@ section{
   gap:40px;
   margin-top:40px;
 }
-
 .business-box{
   background:#fff;
   padding:26px;
@@ -166,9 +155,11 @@ section{
 footer{
   background:#0a0a0a;
   color:#ccc;
-  padding:50px 80px;
+  padding:60px 80px;
   font-size:14px;
+  line-height:1.7;
 }
+footer strong{color:#fff}
 
 /* ================= MOBILE ================= */
 @media(max-width:900px){
@@ -182,52 +173,50 @@ footer{
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header>
   <div class="logo">ANEKA INFRA</div>
 
-  <!-- DESKTOP NAV -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
-    <a href="gallery.html">Gallery</a>
     <a href="services.html">Services</a>
-    <a href="https://interior.anekainfra.com" target="_blank">Interior</a>
+    <a href="interior.html">Interior</a>
     <a href="profile.html">Company Profile</a>
     <a href="https://divineacres.in" target="_blank">Divine Acres</a>
     <a href="careers.html">Careers</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- HAMBURGER -->
   <div class="menu-toggle" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </div>
 </header>
 
-<!-- ================= MOBILE MENU ================= -->
+<!-- MOBILE MENU -->
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
-  <a href="gallery.html">Gallery</a>
   <a href="services.html">Services</a>
-  <a href="https://interior.anekainfra.com" target="_blank">Interior</a>
+  <a href="interior.html">Interior</a>
   <a href="profile.html">Company Profile</a>
   <a href="https://divineacres.in" target="_blank">Divine Acres</a>
   <a href="careers.html">Careers</a>
   <a href="contact.html">Contact</a>
 </div>
 
-<!-- ================= SLIDER ================= -->
+<!-- SLIDER -->
 <div class="slider">
-  <div class="slide active"><img src="images/slider1.png"></div>
-  <div class="slide"><img src="images/slider2.png"></div>
-  <div class="slide"><img src="images/slider3.png"></div>
+  <div class="slide active" onclick="location.href='about.html'">
+    <img src="images/slider1.png">
+  </div>
+  <div class="slide" onclick="location.href='services.html'">
+    <img src="images/slider2.png">
+  </div>
+  <div class="slide" onclick="location.href='interior.html'">
+    <img src="images/slider3.png">
+  </div>
 </div>
 
-<!-- ================= ABOUT ================= -->
 <section>
   <div class="section-title">About Aneka Group</div>
   <div class="section-text">
@@ -237,7 +226,6 @@ footer{
   </div>
 </section>
 
-<!-- ================= BUSINESS ================= -->
 <section style="background:var(--light)">
   <div class="section-title">Our Businesses</div>
   <div class="business">
@@ -256,13 +244,16 @@ footer{
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer>
+  <strong>Aneka Infra Pvt Ltd</strong><br><br>
+  Innov8 Solitaire Corporate Park, 7th Floor,<br>
+  Andheri (East), Mumbai – 400093<br><br>
+  <strong>Email:</strong> business@anekainfra.com<br>
+  <strong>Contact:</strong> +91 88875 87494<br><br>
   © 2026 Aneka Infra Pvt Ltd
 </footer>
 
 <script>
-/* SLIDER */
 let slides=document.querySelectorAll(".slide");
 let i=0;
 setInterval(()=>{
@@ -271,16 +262,9 @@ setInterval(()=>{
   slides[i].classList.add("active");
 },4000);
 
-/* MOBILE MENU */
 function toggleMenu(){
-  const menu=document.getElementById("mobileNav");
-  if(menu.style.display==="flex"){
-    menu.style.display="none";
-    document.body.style.overflow="auto";
-  }else{
-    menu.style.display="flex";
-    document.body.style.overflow="hidden";
-  }
+  const m=document.getElementById("mobileNav");
+  m.style.display = m.style.display==="flex" ? "none" : "flex";
 }
 </script>
 
