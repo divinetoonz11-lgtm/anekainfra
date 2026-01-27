@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interior Cost Calculator | Aneka Interior</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --primary:#0A3D62;
+  --dark:#111;
+  --muted:#666;
+  --bg:#f4f7fb;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+}
+
+header{
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--primary);
+}
+
+.back{
+  font-size:14px;
+  color:var(--primary);
+  text-decoration:none;
+}
+
+.container{
+  max-width:900px;
+  margin:40px auto;
+  background:#fff;
+  padding:40px;
+  border-radius:14px;
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+
+h1{
+  margin-top:0;
+  color:var(--primary);
+}
+
+p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.field{
+  margin-top:20px;
+}
+
+label{
+  font-size:13px;
+  color:#444;
+}
+
+select, input{
+  width:100%;
+  padding:14px;
+  margin-top:6px;
+  font-size:15px;
+  border:1px solid #ccc;
+  border-radius:8px;
+}
+
+button{
+  margin-top:30px;
+  padding:16px;
+  width:100%;
+  font-size:16px;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.result{
+  margin-top:30px;
+  padding:20px;
+  background:var(--bg);
+  border-left:4px solid var(--primary);
+  display:none;
+}
+
+.result h3{
+  margin-top:0;
+  color:var(--primary);
+}
+
+.cta{
+  margin-top:20px;
+  text-align:center;
+}
+
+.cta a{
+  display:inline-block;
+  padding:14px 28px;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  text-decoration:none;
+  border-radius:6px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">ANEKA INTERIOR</div>
+  <a class="back" href="interior.html">← Interior Home</a>
+</header>
+
+<div class="container">
+  <h1>Interior Cost Calculator</h1>
+  <p>
+    Get an estimated interior cost based on your property type, area,
+    budget range and finish level. Final pricing may vary after site visit
+    and design finalization.
+  </p>
+
+  <div class="field">
+    <label>Property Type</label>
+    <select id="type">
+      <option value="1">1 BHK</option>
+      <option value="2">2 BHK</option>
+      <option value="3">3 BHK</option>
+      <option value="4">Villa</option>
+      <option value="3">Office / Commercial</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Carpet Area (sq. ft.)</label>
+    <input type="number" id="area" placeholder="e.g. 900">
+  </div>
+
+  <div class="field">
+    <label>Budget Range</label>
+    <select id="budget">
+      <option value="1">10 – 25 Lakhs</option>
+      <option value="1.3">25 – 50 Lakhs</option>
+      <option value="1.6">50 Lakhs – 1 Cr</option>
+      <option value="2">1 Cr+</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Finish Level</label>
+    <select id="finish">
+      <option value="1800">Standard</option>
+      <option value="2500">Premium</option>
+      <option value="3500">Luxury</option>
+    </select>
+  </div>
+
+  <button onclick="calculate()">Calculate Estimate</button>
+
+  <div class="result" id="result">
+    <h3>Estimated Interior Cost</h3>
+    <p id="cost"></p>
+    <p id="timeline"></p>
+
+    <div class="cta">
+      <a href="get-consultation.html">Get Detailed Estimate</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 Aneka Infra Pvt Ltd · Interior Division
+</footer>
+
+<script>
+function calculate(){
+  const area = Number(document.getElementById("area").value);
+  if(!area || area < 300){
+    alert("Please enter valid carpet area");
+    return;
+  }
+
+  const finish = Number(document.getElementById("finish").value);
+  const budgetFactor = Number(document.getElementById("budget").value);
+
+  const baseCost = area * finish;
+  const minCost = Math.round(baseCost * 0.9 * budgetFactor);
+  const maxCost = Math.round(baseCost * 1.1 * budgetFactor);
+
+  document.getElementById("cost").innerHTML =
+    "₹ " + minCost.toLocaleString("en-IN") +
+    " – ₹ " + maxCost.toLocaleString("en-IN");
+
+  const months = area < 800 ? "2–3 months" : area < 1500 ? "3–5 months" : "5–7 months";
+  document.getElementById("timeline").innerHTML =
+    "<strong>Estimated Timeline:</strong> " + months;
+
+  document.getElementById("result").style.display="block";
+}
+</script>
+
+</body>
+</html>

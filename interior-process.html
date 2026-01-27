@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Process | Aneka Interior</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --primary:#0A3D62;
+  --dark:#111;
+  --muted:#666;
+  --bg:#f4f7fb;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#fff;
+  color:var(--dark);
+}
+
+a{text-decoration:none;color:inherit}
+
+/* ================= HEADER ================= */
+header{
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.brand{
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--primary);
+}
+
+.back{
+  font-size:14px;
+  color:var(--primary);
+}
+
+/* ================= HERO ================= */
+.hero{
+  padding:90px 24px 60px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.hero h1{
+  font-size:38px;
+  margin-bottom:14px;
+  color:var(--primary);
+}
+
+.hero p{
+  font-size:16px;
+  line-height:1.8;
+  color:var(--muted);
+  max-width:900px;
+}
+
+/* ================= PROCESS ================= */
+.process{
+  padding:40px 24px 100px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.step{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:30px;
+  padding:36px 0;
+  border-bottom:1px solid #eee;
+}
+
+.step:last-child{
+  border-bottom:none;
+}
+
+.number{
+  font-size:36px;
+  font-weight:700;
+  color:var(--primary);
+}
+
+.step h3{
+  margin:0 0 8px;
+}
+
+.step p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* ================= CTA ================= */
+.cta{
+  background:var(--bg);
+  padding:60px 24px;
+  text-align:center;
+}
+
+.cta h2{
+  color:var(--primary);
+  margin-bottom:12px;
+}
+
+.cta p{
+  color:var(--muted);
+  margin-bottom:26px;
+}
+
+.cta a{
+  display:inline-block;
+  padding:14px 30px;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  border-radius:6px;
+  font-size:15px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#0a0a0a;
+  color:#ccc;
+  padding:40px 24px;
+  text-align:center;
+  font-size:14px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:700px){
+  .step{
+    grid-template-columns:1fr;
+  }
+  .number{
+    font-size:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">ANEKA INTERIOR</div>
+  <a class="back" href="interior.html">← Interior Home</a>
+</header>
+
+<section class="hero">
+  <h1>Our Interior Execution Process</h1>
+  <p>
+    At Aneka Interior, we follow a structured and transparent execution
+    process to ensure timely delivery, cost control, and premium quality
+    across residential, commercial, and corporate interior projects.
+  </p>
+</section>
+
+<section class="process">
+
+  <div class="step">
+    <div class="number">01</div>
+    <div>
+      <h3>Site Visit & Requirement Analysis</h3>
+      <p>
+        Our team visits the site to understand your space, usage,
+        expectations, budget, and timeline. This forms the foundation
+        of the entire project.
+      </p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="number">02</div>
+    <div>
+      <h3>Design Development & Planning</h3>
+      <p>
+        Based on requirements, we develop layout plans, design concepts,
+        and working drawings aligned with functionality, aesthetics,
+        and feasibility.
+      </p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="number">03</div>
+    <div>
+      <h3>Material Selection & Final Estimation</h3>
+      <p>
+        Materials, finishes, and specifications are finalized with
+        transparent costing. Final BOQ and timelines are frozen before
+        execution begins.
+      </p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="number">04</div>
+    <div>
+      <h3>Execution & Site Supervision</h3>
+      <p>
+        Dedicated project managers ensure quality workmanship,
+        coordination with vendors, and adherence to approved designs
+        and schedules.
+      </p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="number">05</div>
+    <div>
+      <h3>Quality Check & Handover</h3>
+      <p>
+        Final inspection, snag resolution, and systematic handover
+        ensure a ready-to-use space delivered as committed.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<section class="cta">
+  <h2>Plan Your Interior Project with Confidence</h2>
+  <p>
+    Speak to our interior experts and get a detailed proposal tailored
+    to your requirements.
+  </p>
+  <a href="get-consultation.html">Get Consultation</a>
+</section>
+
+<footer>
+  © 2026 Aneka Infra Pvt Ltd · Interior Division
+</footer>
+
+</body>
+</html>

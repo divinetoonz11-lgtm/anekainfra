@@ -45,7 +45,7 @@ header{
   color:var(--blue);
 }
 
-/* NAV */
+/* DESKTOP NAV */
 nav{
   display:flex;
   gap:22px;
@@ -66,7 +66,7 @@ nav a::after{
 }
 nav a:hover::after{width:100%}
 
-/* HAMBURGER */
+/* HAMBURGER (MOBILE ONLY) */
 .menu-toggle{
   display:none;
   width:40px;
@@ -100,6 +100,7 @@ nav a:hover::after{width:100%}
 .mobile-nav a{
   padding:16px 24px;
   border-bottom:1px solid #f0f0f0;
+  font-size:15px;
 }
 
 /* ================= SLIDER ================= */
@@ -163,8 +164,8 @@ footer strong{color:#fff}
 
 /* ================= MOBILE ================= */
 @media(max-width:900px){
-  nav{display:none}
-  .menu-toggle{display:flex}
+  nav{display:none}              /* DESKTOP NAV HIDE */
+  .menu-toggle{display:flex}    /* HAMBURGER SHOW */
   .slider{height:42vh}
   section{padding:70px 24px}
 }
@@ -173,9 +174,11 @@ footer strong{color:#fff}
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
   <div class="logo">ANEKA INFRA</div>
 
+  <!-- DESKTOP NAV -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
@@ -187,12 +190,15 @@ footer strong{color:#fff}
     <a href="contact.html">Contact</a>
   </nav>
 
+  <!-- MOBILE HAMBURGER -->
   <div class="menu-toggle" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </header>
 
-<!-- MOBILE MENU -->
+<!-- ================= MOBILE MENU (ONLY PLACE FOR TABS ON MOBILE) ================= -->
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
@@ -204,7 +210,7 @@ footer strong{color:#fff}
   <a href="contact.html">Contact</a>
 </div>
 
-<!-- SLIDER -->
+<!-- ================= SLIDER ================= -->
 <div class="slider">
   <div class="slide active" onclick="location.href='about.html'">
     <img src="images/slider1.png">
