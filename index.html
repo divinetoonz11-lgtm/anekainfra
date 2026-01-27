@@ -1,8 +1,9 @@
+c
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Aneka Infra Pvt Ltd</title>
+<title>Aneka Infra Pvt Ltd | Construction & Interior Group</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -12,7 +13,7 @@
   --light:#f4f7fb;
 }
 
-*{box-sizing:border-box}
+*{ box-sizing:border-box; }
 
 body{
   margin:0;
@@ -21,17 +22,16 @@ body{
   color:var(--dark);
 }
 
-a{text-decoration:none;color:inherit}
+a{ text-decoration:none; color:inherit; }
 
 /* ================= HEADER ================= */
 header{
   position:fixed;
-  top:0;
-  width:100%;
+  top:0; left:0; right:0;
   height:64px;
   background:#fff;
   border-bottom:1px solid #e5e5e5;
-  padding:0 20px;
+  padding:0 24px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -49,11 +49,13 @@ header{
 nav{
   display:flex;
   gap:22px;
-}
-nav a{
   font-size:14px;
+}
+
+nav a{
   position:relative;
 }
+
 nav a::after{
   content:"";
   position:absolute;
@@ -64,27 +66,25 @@ nav a::after{
   background:var(--blue);
   transition:.3s;
 }
-nav a:hover::after{width:100%}
+nav a:hover::after{ width:100%; }
 
-/* HAMBURGER (MOBILE ONLY) */
-.menu-toggle{
+/* MOBILE MENU */
+.menu-btn{
   display:none;
-  width:40px;
-  height:40px;
+  width:36px;
+  height:36px;
   flex-direction:column;
   justify-content:center;
-  align-items:center;
   gap:5px;
   cursor:pointer;
 }
-.menu-toggle span{
-  width:26px;
+
+.menu-btn span{
   height:3px;
   background:#000;
   border-radius:2px;
 }
 
-/* MOBILE MENU */
 .mobile-nav{
   position:fixed;
   top:64px;
@@ -97,27 +97,31 @@ nav a:hover::after{width:100%}
   overflow-y:auto;
   z-index:999;
 }
+
 .mobile-nav a{
   padding:16px 24px;
   border-bottom:1px solid #f0f0f0;
-  font-size:15px;
 }
 
 /* ================= SLIDER ================= */
 .slider{
   margin-top:64px;
-  height:60vh;
+  height:70vh;
   position:relative;
   overflow:hidden;
 }
+
 .slide{
   position:absolute;
   inset:0;
   opacity:0;
   transition:1s ease;
-  cursor:pointer;
 }
-.slide.active{opacity:1}
+
+.slide.active{
+  opacity:1;
+}
+
 .slide img{
   width:100%;
   height:100%;
@@ -128,15 +132,18 @@ nav a:hover::after{width:100%}
 section{
   padding:90px 80px;
 }
+
 .section-title{
   font-size:32px;
   color:var(--blue);
   margin-bottom:20px;
 }
+
 .section-text{
   max-width:900px;
   font-size:15px;
   line-height:1.8;
+  color:#444;
 }
 
 /* ================= BUSINESS ================= */
@@ -146,6 +153,7 @@ section{
   gap:40px;
   margin-top:40px;
 }
+
 .business-box{
   background:#fff;
   padding:26px;
@@ -160,87 +168,84 @@ footer{
   font-size:14px;
   line-height:1.7;
 }
-footer strong{color:#fff}
+
+footer strong{ color:#fff; }
 
 /* ================= MOBILE ================= */
 @media(max-width:900px){
-  nav{display:none}              /* DESKTOP NAV HIDE */
-  .menu-toggle{display:flex}    /* HAMBURGER SHOW */
-  .slider{height:42vh}
-  section{padding:70px 24px}
+  nav{ display:none; }
+  .menu-btn{ display:flex; }
+  .slider{ height:50vh; }
+  section{ padding:70px 24px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header>
   <div class="logo">ANEKA INFRA</div>
 
-  <!-- DESKTOP NAV -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
     <a href="services.html">Services</a>
     <a href="interior.html">Interior</a>
     <a href="profile.html">Company Profile</a>
-    <a href="https://divineacres.in" target="_blank">Divine Acres</a>
     <a href="careers.html">Careers</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- MOBILE HAMBURGER -->
-  <div class="menu-toggle" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+  <div class="menu-btn" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
   </div>
 </header>
 
-<!-- ================= MOBILE MENU (ONLY PLACE FOR TABS ON MOBILE) ================= -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
   <a href="services.html">Services</a>
   <a href="interior.html">Interior</a>
   <a href="profile.html">Company Profile</a>
-  <a href="https://divineacres.in" target="_blank">Divine Acres</a>
   <a href="careers.html">Careers</a>
   <a href="contact.html">Contact</a>
 </div>
 
-<!-- ================= SLIDER ================= -->
+<!-- SLIDER -->
 <div class="slider">
-  <div class="slide active" onclick="location.href='about.html'">
-    <img src="images/slider1.png">
+  <!-- 1st SLIDE -->
+  <div class="slide active">
+    <img src="images/slider3.png" alt="Aneka Infra Project">
   </div>
-  <div class="slide" onclick="location.href='services.html'">
-    <img src="images/slider2.png">
-  </div>
-  <div class="slide" onclick="location.href='interior.html'">
-    <img src="images/slider3.png">
+
+  <!-- 2nd SLIDE -->
+  <div class="slide">
+    <img src="images/slider2.png" alt="Aneka Infra Interior">
   </div>
 </div>
 
+<!-- ABOUT -->
 <section>
   <div class="section-title">About Aneka Group</div>
   <div class="section-text">
     Aneka Infra Pvt Ltd is an integrated construction and infrastructure group
-    delivering residential, commercial and urban development projects with
+    delivering residential, commercial and premium interior projects with
     long-term value and trust.
   </div>
 </section>
 
+<!-- BUSINESS -->
 <section style="background:var(--light)">
   <div class="section-title">Our Businesses</div>
   <div class="business">
     <div class="business-box">
       <h4>Construction & Infrastructure</h4>
-      <p>High-quality civil and infrastructure projects.</p>
+      <p>Residential and commercial construction projects.</p>
     </div>
     <div class="business-box">
-      <h4>Interior Design</h4>
+      <h4>Interior Design & Build</h4>
       <p>Luxury residential and commercial interiors.</p>
     </div>
     <div class="business-box">
@@ -250,6 +255,7 @@ footer strong{color:#fff}
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <strong>Aneka Infra Pvt Ltd</strong><br><br>
   Innov8 Solitaire Corporate Park, 7th Floor,<br>
@@ -260,17 +266,26 @@ footer strong{color:#fff}
 </footer>
 
 <script>
-let slides=document.querySelectorAll(".slide");
-let i=0;
-setInterval(()=>{
-  slides[i].classList.remove("active");
-  i=(i+1)%slides.length;
-  slides[i].classList.add("active");
-},4000);
+/* SLIDER AUTO PLAY */
+let slides = document.querySelectorAll(".slide");
+let i = 0;
 
+setInterval(() => {
+  slides[i].classList.remove("active");
+  i = (i + 1) % slides.length;
+  slides[i].classList.add("active");
+}, 4000);
+
+/* MOBILE MENU */
 function toggleMenu(){
   const m=document.getElementById("mobileNav");
-  m.style.display = m.style.display==="flex" ? "none" : "flex";
+  if(m.style.display==="flex"){
+    m.style.display="none";
+    document.body.style.overflow="auto";
+  }else{
+    m.style.display="flex";
+    document.body.style.overflow="hidden";
+  }
 }
 </script>
 

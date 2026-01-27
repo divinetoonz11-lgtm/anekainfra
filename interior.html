@@ -6,7 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root{ --blue:#0A3D62; }
+:root{
+  --blue:#0A3D62;
+}
+
 *{ box-sizing:border-box; }
 
 body{
@@ -22,17 +25,18 @@ body{
   inset:0;
   z-index:-2;
 }
+
 .video-bg video{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* overlay */
+/* DARK OVERLAY (SOFT, NOT BRIGHT) */
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.55);
+  background:rgba(0,0,0,0.65);
   z-index:-1;
 }
 
@@ -49,24 +53,29 @@ header{
   backdrop-filter:blur(6px);
 }
 
-.logo img{ height:70px; }
+.logo img{
+  height:68px;
+}
 
 /* DESKTOP NAV */
-.nav{
+nav{
   display:flex;
-  gap:20px;
+  gap:22px;
   font-size:13px;
   letter-spacing:1px;
 }
-.nav a{
+
+nav a{
   color:#fff;
   text-decoration:none;
-  border-bottom:1px solid transparent;
   padding-bottom:4px;
+  border-bottom:1px solid transparent;
 }
-.nav a:hover{ border-bottom-color:#fff; }
+nav a:hover{
+  border-bottom-color:#fff;
+}
 
-/* ================= MOBILE HAMBURGER ================= */
+/* ================= MOBILE MENU ================= */
 .menu-btn{
   display:none;
   width:34px;
@@ -76,33 +85,33 @@ header{
   gap:5px;
   cursor:pointer;
 }
+
 .menu-btn span{
   height:3px;
   background:#fff;
   border-radius:2px;
 }
 
-/* MOBILE MENU PANEL */
 .mobile-menu{
   position:fixed;
   top:80px;
   left:0;
   width:100%;
   height:calc(100vh - 80px);
-  background:rgba(0,0,0,0.92);
+  background:rgba(0,0,0,0.95);
   display:none;
   flex-direction:column;
   z-index:20;
 }
+
 .mobile-menu a{
   padding:18px 28px;
   color:#fff;
   text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.1);
-  font-size:15px;
+  border-bottom:1px solid rgba(255,255,255,0.12);
 }
 
-/* ================= CENTER ================= */
+/* ================= CENTER CONTENT ================= */
 .center{
   min-height:100vh;
   padding-top:120px;
@@ -117,17 +126,19 @@ header{
 
 .center h1{
   font-size:42px;
-  margin-bottom:28px;
+  font-weight:600;
+  margin-bottom:32px;
   letter-spacing:1px;
 }
 
-/* BIG ACTION BUTTONS */
+/* ACTION BUTTONS */
 .actions{
   display:flex;
   gap:18px;
   width:100%;
   max-width:420px;
 }
+
 .actions a{
   flex:1;
   padding:16px;
@@ -137,6 +148,7 @@ header{
   letter-spacing:1px;
   transition:.3s;
 }
+
 .actions a:hover{
   background:#fff;
   color:#000;
@@ -144,11 +156,11 @@ header{
 
 /* ================= MOBILE ================= */
 @media(max-width:900px){
-  .nav{ display:none; }
+  nav{ display:none; }
   .menu-btn{ display:flex; }
   .center h1{ font-size:30px; }
   .actions{ flex-direction:column; }
-  .logo img{ height:60px; }
+  .logo img{ height:58px; }
   header{ padding:14px 18px; }
 }
 </style>
@@ -156,9 +168,9 @@ header{
 
 <body>
 
-<!-- VIDEO (AUTO SWITCH) -->
+<!-- VIDEO BACKGROUND -->
 <div class="video-bg">
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline preload="metadata" poster="images/hero-poster.jpg">
     <source src="videos/hero-desktop.mp4" media="(min-width:901px)" type="video/mp4">
     <source src="videos/hero-mobile.mp4" media="(max-width:900px)" type="video/mp4">
   </video>
@@ -171,11 +183,8 @@ header{
     <img src="images/logo1.png" alt="Aneka Interior">
   </div>
 
-  <nav class="nav">
+  <nav>
     <a href="interior-projects.html">Projects</a>
-    <a href="interior-calculator.html">Cost Calculator</a>
-    <a href="interior-process.html">Process</a>
-    <a href="interior-why-us.html">Why Us</a>
     <a href="get-consultation.html">Consultation</a>
   </nav>
 
@@ -187,9 +196,6 @@ header{
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="interior-projects.html">Projects</a>
-  <a href="interior-calculator.html">Cost Calculator</a>
-  <a href="interior-process.html">Process</a>
-  <a href="interior-why-us.html">Why Us</a>
   <a href="get-consultation.html">Consultation</a>
 </div>
 

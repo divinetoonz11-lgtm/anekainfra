@@ -8,38 +8,39 @@
 <style>
 :root{
   --primary:#0A3D62;
-  --dark:#111;
+  --text:#111;
   --muted:#666;
-  --bg:#f4f7fb;
+  --bg:#f5f7fb;
 }
 
-*{box-sizing:border-box}
+*{ box-sizing:border-box; }
 
 body{
   margin:0;
   font-family:"Segoe UI", Arial, sans-serif;
   background:#fff;
-  color:var(--dark);
+  color:var(--text);
 }
 
-a{text-decoration:none;color:inherit}
+a{ text-decoration:none; color:inherit; }
 
-/* ===== HEADER ===== */
+/* ================= HEADER ================= */
 header{
   position:sticky;
   top:0;
+  z-index:100;
   background:#fff;
   border-bottom:1px solid #e5e5e5;
-  padding:16px 24px;
+  padding:18px 28px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  z-index:100;
+  justify-content:space-between;
 }
 
 .brand{
   font-weight:700;
   letter-spacing:2px;
+  font-size:18px;
   color:var(--primary);
 }
 
@@ -48,28 +49,29 @@ header{
   color:var(--primary);
 }
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 .hero{
-  padding:80px 24px 50px;
   max-width:1200px;
   margin:auto;
+  padding:110px 28px 70px;
 }
 
 .hero h1{
   font-size:36px;
-  margin-bottom:10px;
+  font-weight:600;
+  margin:0 0 14px;
 }
 
 .hero p{
-  max-width:900px;
+  max-width:860px;
   font-size:16px;
-  line-height:1.8;
-  color:var(--muted);
+  line-height:1.7;
+  color:#555;
 }
 
-/* ===== PROJECT ===== */
+/* ================= PROJECT SECTION ================= */
 .project{
-  padding:70px 24px;
+  padding:80px 28px;
   border-top:1px solid #eee;
 }
 
@@ -83,116 +85,93 @@ header{
 }
 
 .project h2{
+  font-size:28px;
+  font-weight:600;
+  margin:0 0 10px;
   color:var(--primary);
-  margin-bottom:6px;
 }
 
 .meta{
-  font-size:14px;
+  font-size:15px;
+  line-height:1.6;
   color:var(--muted);
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 
 /* IMAGE GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
+  gap:22px;
 }
 
 .grid img{
   width:100%;
-  height:260px;
+  height:280px;
   object-fit:cover;
   border-radius:12px;
   background:#ddd;
 }
 
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
 footer{
   background:#0a0a0a;
   color:#ccc;
   padding:40px 24px;
   text-align:center;
   font-size:14px;
+  line-height:1.7;
 }
 
-/* ===== DESKTOP ===== */
+/* ================= DESKTOP ================= */
 @media(min-width:900px){
-  .hero{padding:120px 40px 70px}
-  .project{padding:100px 40px}
-  .grid img{height:300px}
+  .hero{ padding:130px 40px 90px; }
+  .project{ padding:100px 40px; }
+  .grid img{ height:320px; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
   <div class="brand">ANEKA INTERIOR</div>
   <a class="back" href="interior.html">← Interior Home</a>
 </header>
 
+<!-- ================= HERO ================= -->
 <section class="hero">
   <h1>Interior Projects</h1>
   <p>
-    A curated selection of completed and ongoing interior projects by
-    Aneka Interior, showcasing our experience in residential, corporate,
-    and commercial interiors with a focus on quality execution.
+    A curated selection of completed and ongoing interior projects by Aneka Interior,
+    showcasing our experience in residential, corporate, and commercial interiors
+    with a strong focus on quality execution, detailing, and long-term value.
   </p>
 </section>
 
-<!-- ===== PROJECT 1 ===== -->
-<section class="project">
-  <div class="project-inner">
-    <h2>Jawahar Jyoti Project, Thane</h2>
-    <div class="meta">
-      <strong>Client:</strong> Madar Construction Buildcon LLP<br>
-      Scope: Sample Flat (2 & 3 BHK) and Sales Office
-    </div>
-
-    <div class="grid">
-      <img src="images/interior/jawahar-1.jpg" alt="">
-      <img src="images/interior/jawahar-2.jpg" alt="">
-      <img src="images/interior/jawahar-3.jpg" alt="">
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROJECT 2 ===== -->
+<!-- ================= PROJECT ================= -->
 <section class="project alt">
   <div class="project-inner">
-    <h2>Corporate Office Interior, Vashi</h2>
+    <h2>Jawahar Jyoti Project, Thane</h2>
+
     <div class="meta">
-      Scope: Corporate Office Fit-Out<br>
-      Area: Approx. 10,000 Sq. Ft
+      <strong>Client:</strong> Madar Construction Buildcon LLP<br>
+      <strong>Scope:</strong> Sample Flat (2 & 3 BHK) and Sales Office<br>
+      <strong>Status:</strong> Completed
     </div>
 
     <div class="grid">
-      <img src="images/interior/vashi-1.jpg" alt="">
-      <img src="images/interior/vashi-2.jpg" alt="">
-      <img src="images/interior/vashi-3.jpg" alt="">
+      <img src="images/rohan1.png" alt="Interior Project">
+      <img src="images/rohan2.png" alt="Interior Project">
+      <img src="images/rohan3.png" alt="Interior Project">
+      <img src="images/rohan4.png" alt="Interior Project">
+      <img src="images/rohan5.png" alt="Interior Project">
     </div>
   </div>
 </section>
 
-<!-- ===== PROJECT 3 ===== -->
-<section class="project">
-  <div class="project-inner">
-    <h2>Commercial Lobby & Workspace Interior, Pune</h2>
-    <div class="meta">
-      Scope: Lobby, Reception & Common Areas<br>
-      Status: Ongoing
-    </div>
-
-    <div class="grid">
-      <img src="images/interior/pune-1.jpg" alt="">
-      <img src="images/interior/pune-2.jpg" alt="">
-      <img src="images/interior/pune-3.jpg" alt="">
-    </div>
-  </div>
-</section>
-
+<!-- ================= FOOTER ================= -->
 <footer>
   © 2026 Aneka Infra Pvt Ltd · Interior Division
 </footer>
