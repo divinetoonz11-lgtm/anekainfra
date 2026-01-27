@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Aneka Interior | Luxury Interior Design & Build</title>
+<title>Aneka Interior</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
   --blue:#0A3D62;
-  --dark:#1a1a1a;
 }
 
 *{box-sizing:border-box}
@@ -16,171 +15,157 @@
 body{
   margin:0;
   font-family:"Segoe UI", Arial, sans-serif;
-  background:#ffffff;
-  color:var(--dark);
+  overflow:hidden;
 }
 
-a{text-decoration:none}
-
-/* ================= HEADER ================= */
-header{
+/* ================= VIDEO ================= */
+.video-bg{
   position:fixed;
-  top:0;
+  inset:0;
+  z-index:-2;
+}
+
+.video-bg video{
   width:100%;
-  background:#ffffff;
-  border-bottom:1px solid #e5e5e5;
-  padding:18px 32px;
-  display:flex;
-  align-items:center;
-  z-index:1000;
+  height:100%;
+  object-fit:cover;
 }
 
-/* BIG PREMIUM LOGO */
+/* overlay */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:-1;
+}
+
+/* ================= LOGO ================= */
+.logo{
+  position:absolute;
+  top:24px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+}
+
 .logo img{
-  height:96px; /* DOUBLE SIZE */
+  height:110px;
 }
 
-/* ================= HERO ================= */
-.hero{
-  margin-top:120px; /* logo height balance */
-  height:85vh;
-  background:url("images/slider3.png") center/cover no-repeat;
+/* ================= CENTER ================= */
+.center-box{
+  height:100vh;
+  padding:24px;
   display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
   align-items:center;
-  padding-left:80px;
+  text-align:center;
+  color:#fff;
 }
 
-.hero-overlay{
-  background:rgba(0,0,0,0.5);
-  padding:50px;
-  max-width:560px;
-}
-
-.hero h1{
-  margin:0;
-  font-size:42px;
-  color:#ffffff;
-  line-height:1.25;
-}
-
-.hero p{
-  margin:18px 0 32px;
-  color:#eaeaea;
-  font-size:15px;
-  line-height:1.7;
+.center-box h1{
+  font-size:38px;
+  margin-bottom:32px;
 }
 
 /* ================= BUTTONS ================= */
-.hero-actions{
+.actions{
+  width:100%;
+  max-width:420px;
   display:flex;
-  gap:20px;
+  gap:16px;
 }
 
-.hero-actions button{
-  padding:14px 34px;
-  border:1px solid #ffffff;
-  background:transparent;
-  color:#ffffff;
+.actions button{
+  flex:1;
+  padding:16px;
   font-size:14px;
+  background:transparent;
+  border:1px solid #fff;
+  color:#fff;
   letter-spacing:1px;
   cursor:pointer;
   transition:.3s;
 }
 
-.hero-actions button:hover{
-  background:#ffffff;
+.actions button:hover{
+  background:#fff;
   color:#000;
 }
 
-/* ================= FORM SECTIONS ================= */
-.form-section{
+/* ================= FORMS (BOTTOM SHEET) ================= */
+.form-wrapper{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
   display:none;
-  padding:90px 80px;
-  background:#f4f7fb;
+  align-items:flex-end;
 }
 
-.form-section.active{
-  display:block;
+.form-wrapper.active{
+  display:flex;
 }
 
 .form-box{
-  max-width:520px;
-  background:#ffffff;
-  padding:40px;
-  border-left:4px solid var(--blue);
+  background:#fff;
+  width:100%;
+  max-height:90vh;
+  border-radius:18px 18px 0 0;
+  padding:28px 24px;
+  animation:slideUp .35s ease;
+}
+
+@keyframes slideUp{
+  from{transform:translateY(100%)}
+  to{transform:translateY(0)}
 }
 
 .form-box h2{
-  margin-top:0;
+  margin:0 0 12px;
   color:var(--blue);
 }
 
 .form-box input,
 .form-box textarea{
   width:100%;
-  padding:12px;
-  margin:12px 0;
+  padding:14px;
+  margin:10px 0;
   border:1px solid #ccc;
   font-size:14px;
 }
 
 .form-box button{
-  margin-top:16px;
-  padding:12px 30px;
+  width:100%;
+  margin-top:14px;
+  padding:14px;
   background:var(--blue);
-  color:#ffffff;
   border:none;
-  font-size:14px;
-  cursor:pointer;
-}
-
-/* ================= ABOUT ================= */
-section{
-  padding:90px 80px;
-}
-
-.section-title{
-  font-size:32px;
-  color:var(--blue);
-  margin-bottom:20px;
-}
-
-.section-text{
-  max-width:900px;
+  color:#fff;
   font-size:15px;
-  line-height:1.8;
-  color:#444;
 }
 
-/* ================= FOOTER ================= */
-footer{
-  background:#0a0a0a;
-  color:#cccccc;
-  padding:60px 80px;
+.close{
+  text-align:right;
+  font-size:20px;
+  cursor:pointer;
+  margin-bottom:6px;
 }
 
-footer strong{color:#ffffff}
-footer p{font-size:14px;line-height:1.7}
-
-/* ================= MOBILE ================= */
-@media(max-width:900px){
-  .logo img{
-    height:64px; /* still big but balanced */
+/* ================= DESKTOP ================= */
+@media(min-width:900px){
+  .center-box{
+    justify-content:center;
   }
-  .hero{
-    padding:20px;
-    align-items:flex-end;
+  .actions{
+    max-width:520px;
   }
-  .hero-overlay{
-    padding:30px;
-    width:100%;
+  .form-wrapper{
+    align-items:center;
   }
-  .hero h1{
-    font-size:28px;
-  }
-  section,
-  .form-section{
-    padding:60px 24px;
+  .form-box{
+    max-width:480px;
+    border-radius:0;
   }
 }
 </style>
@@ -188,89 +173,64 @@ footer p{font-size:14px;line-height:1.7}
 
 <body>
 
-<!-- ================= HEADER (LOGO ONLY) ================= -->
-<header>
-  <div class="logo">
-    <a href="index.html">
-      <img src="images/logo1.png" alt="Aneka Interior Logo">
-    </a>
-  </div>
-</header>
+<!-- VIDEO -->
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="videos/interior.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="overlay"></div>
 
-<!-- ================= HERO ================= -->
-<div class="hero">
-  <div class="hero-overlay">
-    <h1>Luxury Interior Design & Build</h1>
-    <p>
-      International-quality residential and commercial interiors
-      delivered with precision, elegance and trust.
-    </p>
+<!-- LOGO -->
+<div class="logo">
+  <img src="images/logo1.png" alt="Aneka Interior">
+</div>
 
-    <!-- 2 PREMIUM BUTTONS -->
-    <div class="hero-actions">
-      <button onclick="openForm('projectForm')">View Interior Projects</button>
-      <button onclick="openForm('consultForm')">Get Consultation</button>
-    </div>
+<!-- CONTENT -->
+<div class="center-box">
+  <h1>Luxury Interior Design & Build</h1>
+
+  <div class="actions">
+    <button onclick="openForm('projectForm')">Interior Projects</button>
+    <button onclick="openForm('consultForm')">Get Consultation</button>
   </div>
 </div>
 
-<!-- ================= FORM : PROJECT ENQUIRY ================= -->
-<div class="form-section" id="projectForm">
+<!-- FORM 1 -->
+<div class="form-wrapper" id="projectForm">
   <div class="form-box">
+    <div class="close" onclick="closeForms()">✕</div>
     <h2>Interior Project Enquiry</h2>
     <input type="text" placeholder="Full Name">
-    <input type="email" placeholder="Email Address">
+    <input type="email" placeholder="Email">
     <input type="text" placeholder="City">
     <textarea rows="4" placeholder="Project Requirement"></textarea>
     <button>Submit Enquiry</button>
   </div>
 </div>
 
-<!-- ================= FORM : CONSULTATION ================= -->
-<div class="form-section" id="consultForm">
+<!-- FORM 2 -->
+<div class="form-wrapper" id="consultForm">
   <div class="form-box">
+    <div class="close" onclick="closeForms()">✕</div>
     <h2>Design Consultation</h2>
     <input type="text" placeholder="Full Name">
     <input type="tel" placeholder="Phone Number">
-    <input type="text" placeholder="Property Type">
     <textarea rows="4" placeholder="Consultation Details"></textarea>
     <button>Request Callback</button>
   </div>
 </div>
 
-<!-- ================= ABOUT ================= -->
-<section>
-  <div class="section-title">About Aneka Interior</div>
-  <div class="section-text">
-    Aneka Interior is the luxury interior design and build division of
-    Aneka Infra Pvt Ltd, specializing in premium residential and commercial
-    interiors with turnkey execution and refined craftsmanship.
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-  <p><strong>Aneka Interior</strong></p>
-  <p>
-    Innov8 Solitaire Corporate Park, 7th Floor,<br>
-    Andheri (E), Mumbai – 400093
-  </p>
-  <p>
-    <strong>Email:</strong> bussniss@anekainfar.com<br>
-    <strong>Contact:</strong> 8887584494
-  </p>
-  <p style="margin-top:30px;">© 2026 Aneka Infra Pvt Ltd</p>
-</footer>
-
 <script>
 function openForm(id){
+  document.body.style.overflow="hidden";
+  document.getElementById(id).classList.add("active");
+}
+
+function closeForms(){
+  document.body.style.overflow="auto";
   document.getElementById("projectForm").classList.remove("active");
   document.getElementById("consultForm").classList.remove("active");
-  document.getElementById(id).classList.add("active");
-  window.scrollTo({
-    top: document.getElementById(id).offsetTop - 80,
-    behavior: "smooth"
-  });
 }
 </script>
 
