@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Aneka Interior | Luxury Interior Design & Build</title>
+<title>Aneka Interior | Luxury Interior Design</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -32,11 +32,11 @@ body{
   object-fit:cover;
 }
 
-/* DARK OVERLAY (SOFT, NOT BRIGHT) */
+/* LIGHT OVERLAY (BRIGHT VIDEO) */
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.65);
+  background:rgba(0,0,0,0.22); /* 👈 BRIGHT */
   z-index:-1;
 }
 
@@ -45,7 +45,7 @@ header{
   position:fixed;
   top:0; left:0; right:0;
   z-index:10;
-  padding:16px 28px;
+  padding:14px 28px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -54,7 +54,7 @@ header{
 }
 
 .logo img{
-  height:68px;
+  height:64px;
 }
 
 /* DESKTOP NAV */
@@ -71,11 +71,12 @@ nav a{
   padding-bottom:4px;
   border-bottom:1px solid transparent;
 }
+
 nav a:hover{
   border-bottom-color:#fff;
 }
 
-/* ================= MOBILE MENU ================= */
+/* ================= HAMBURGER ================= */
 .menu-btn{
   display:none;
   width:34px;
@@ -92,12 +93,13 @@ nav a:hover{
   border-radius:2px;
 }
 
+/* MOBILE MENU */
 .mobile-menu{
   position:fixed;
-  top:80px;
+  top:88px;
   left:0;
   width:100%;
-  height:calc(100vh - 80px);
+  height:calc(100vh - 88px);
   background:rgba(0,0,0,0.95);
   display:none;
   flex-direction:column;
@@ -111,10 +113,10 @@ nav a:hover{
   border-bottom:1px solid rgba(255,255,255,0.12);
 }
 
-/* ================= CENTER CONTENT ================= */
+/* ================= CENTER ================= */
 .center{
   min-height:100vh;
-  padding-top:120px;
+  padding-top:140px;
   padding-left:24px;
   padding-right:24px;
   display:flex;
@@ -127,25 +129,26 @@ nav a:hover{
 .center h1{
   font-size:42px;
   font-weight:600;
-  margin-bottom:32px;
+  margin-bottom:34px;
   letter-spacing:1px;
 }
 
 /* ACTION BUTTONS */
 .actions{
   display:flex;
-  gap:18px;
+  gap:20px;
   width:100%;
-  max-width:420px;
+  max-width:440px;
 }
 
 .actions a{
   flex:1;
-  padding:16px;
-  border:1px solid #fff;
+  padding:18px;
+  border:2px solid #fff;
   color:#fff;
   text-decoration:none;
   letter-spacing:1px;
+  font-size:14px;
   transition:.3s;
 }
 
@@ -160,8 +163,8 @@ nav a:hover{
   .menu-btn{ display:flex; }
   .center h1{ font-size:30px; }
   .actions{ flex-direction:column; }
-  .logo img{ height:58px; }
-  header{ padding:14px 18px; }
+  .logo img{ height:56px; }
+  header{ padding:12px 18px; }
 }
 </style>
 </head>
@@ -171,8 +174,7 @@ nav a:hover{
 <!-- VIDEO BACKGROUND -->
 <div class="video-bg">
   <video autoplay muted loop playsinline preload="metadata" poster="images/hero-poster.jpg">
-    <source src="videos/hero-desktop.mp4" media="(min-width:901px)" type="video/mp4">
-    <source src="videos/hero-mobile.mp4" media="(max-width:900px)" type="video/mp4">
+    <source src="videos/hero-desktop.mp4" type="video/mp4">
   </video>
 </div>
 <div class="overlay"></div>
@@ -186,6 +188,9 @@ nav a:hover{
   <nav>
     <a href="interior-projects.html">Projects</a>
     <a href="get-consultation.html">Consultation</a>
+    <a href="calculator.html">Calculator</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
   <div class="menu-btn" onclick="toggleMenu()">
@@ -197,6 +202,9 @@ nav a:hover{
 <div class="mobile-menu" id="mobileMenu">
   <a href="interior-projects.html">Projects</a>
   <a href="get-consultation.html">Consultation</a>
+  <a href="calculator.html">Calculator</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
 </div>
 
 <!-- CENTER -->

@@ -31,17 +31,17 @@ header{
   z-index:100;
   background:#fff;
   border-bottom:1px solid #e5e5e5;
-  padding:18px 28px;
+  padding:16px 24px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
 
 .brand{
   font-weight:700;
   letter-spacing:2px;
-  font-size:18px;
   color:var(--primary);
+  font-size:18px;
 }
 
 .back{
@@ -53,25 +53,24 @@ header{
 .hero{
   max-width:1200px;
   margin:auto;
-  padding:110px 28px 70px;
+  padding:80px 24px 40px;   /* 👈 GAP REDUCED */
 }
 
 .hero h1{
-  font-size:36px;
-  font-weight:600;
-  margin:0 0 14px;
+  font-size:34px;
+  margin:0 0 10px;
 }
 
 .hero p{
   max-width:860px;
-  font-size:16px;
+  font-size:15px;
   line-height:1.7;
   color:#555;
 }
 
-/* ================= PROJECT SECTION ================= */
+/* ================= PROJECT ================= */
 .project{
-  padding:80px 28px;
+  padding:55px 24px;       /* 👈 TIGHTER */
   border-top:1px solid #eee;
 }
 
@@ -85,29 +84,28 @@ header{
 }
 
 .project h2{
-  font-size:28px;
-  font-weight:600;
-  margin:0 0 10px;
+  font-size:25px;
+  margin:0 0 6px;
   color:var(--primary);
 }
 
 .meta{
-  font-size:15px;
-  line-height:1.6;
+  font-size:14px;
+  line-height:1.7;
   color:var(--muted);
-  margin-bottom:22px;
+  margin-bottom:18px;
 }
 
 /* IMAGE GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
 }
 
 .grid img{
   width:100%;
-  height:280px;
+  height:220px;
   object-fit:cover;
   border-radius:12px;
   background:#ddd;
@@ -117,61 +115,101 @@ header{
 footer{
   background:#0a0a0a;
   color:#ccc;
-  padding:40px 24px;
+  padding:36px 24px;
   text-align:center;
   font-size:14px;
-  line-height:1.7;
 }
 
-/* ================= DESKTOP ================= */
-@media(min-width:900px){
-  .hero{ padding:130px 40px 90px; }
-  .project{ padding:100px 40px; }
-  .grid img{ height:320px; }
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .hero{
+    padding:70px 20px 30px;   /* 👈 MOBILE GAP FIX */
+  }
+
+  .hero h1{
+    font-size:26px;
+  }
+
+  .project{
+    padding:45px 20px;
+  }
+
+  .grid img{
+    height:160px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header>
   <div class="brand">ANEKA INTERIOR</div>
   <a class="back" href="interior.html">← Interior Home</a>
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <section class="hero">
   <h1>Interior Projects</h1>
   <p>
     A curated selection of completed and ongoing interior projects by Aneka Interior,
-    showcasing our experience in residential, corporate, and commercial interiors
-    with a strong focus on quality execution, detailing, and long-term value.
+    reflecting our expertise in residential, corporate, and commercial interiors.
+    Each project demonstrates our focus on quality execution, functional planning,
+    and refined detailing.
   </p>
 </section>
 
-<!-- ================= PROJECT ================= -->
+<!-- ================= PROJECT 1 ================= -->
 <section class="project alt">
   <div class="project-inner">
     <h2>Jawahar Jyoti Project, Thane</h2>
-
     <div class="meta">
       <strong>Client:</strong> Madar Construction Buildcon LLP<br>
-      <strong>Scope:</strong> Sample Flat (2 & 3 BHK) and Sales Office<br>
-      <strong>Status:</strong> Completed
+      <strong>Scope:</strong> Design & execution of sample flats (2 & 3 BHK) and sales office,
+      delivering a contemporary layout with premium finishes for customer experience.
     </div>
-
     <div class="grid">
-      <img src="images/rohan1.png" alt="Interior Project">
-      <img src="images/rohan2.png" alt="Interior Project">
-      <img src="images/rohan3.png" alt="Interior Project">
-      <img src="images/rohan4.png" alt="Interior Project">
-      <img src="images/rohan5.png" alt="Interior Project">
+      <img src="images/rohan1.png">
+      <img src="images/rohan2.png">
+      <img src="images/rohan3.png">
     </div>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- ================= PROJECT 2 ================= -->
+<section class="project">
+  <div class="project-inner">
+    <h2>Residential Interior – Mumbai</h2>
+    <div class="meta">
+      <strong>Scope:</strong> Complete interior fit-out for a premium 3 BHK residence,
+      including modular kitchens, wardrobes, living areas, and customized finishes.
+    </div>
+    <div class="grid">
+      <img src="images/rohan2.png">
+      <img src="images/rohan4.png">
+      <img src="images/rohan5.png">
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECT 3 ================= -->
+<section class="project alt">
+  <div class="project-inner">
+    <h2>Corporate Sales Office Interior</h2>
+    <div class="meta">
+      <strong>Scope:</strong> Interior design and execution of a corporate sales office
+      and experience center, focusing on branding, workflow efficiency, and client engagement.
+    </div>
+    <div class="grid">
+      <img src="images/rohan1.png">
+      <img src="images/rohan3.png">
+      <img src="images/rohan5.png">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   © 2026 Aneka Infra Pvt Ltd · Interior Division
 </footer>
